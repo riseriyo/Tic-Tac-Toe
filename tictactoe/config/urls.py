@@ -9,7 +9,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 admin.autodiscover()
 
-from pages import views
+#from pages import views
 
 #*********** DEVELOPMENT --  models to use -- DEVELOPMENT ***********************
 from settings.base import STATIC_ROOT
@@ -25,7 +25,8 @@ urlpatterns = patterns('',
 	# url(r'^blog/', include('blog.urls')),
 
 	url(r'^admin/', include(admin.site.urls)),
-	url(r'^$', views.home),
+	url(r'^$', 'pages.views.home', name='home'),
+	url(r'^$', 'ai.views.tictactoeviews', name="tictactoe"),
 )
 
 if 'settings.local':
